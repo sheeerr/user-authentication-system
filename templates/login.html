@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="icon" href="./Screenshot_1-1-2025_192350_images-platform.99static.com-removebg-preview.png" type="image/png">
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="../static/Screenshot_1-1-2025_192350_images-platform.99static.com-removebg-preview.png" alt="Onit Logo" class="logo">
+                <h1 class="site-title">onit</h1>
+            </div>
+        </div>
+    </header>
+    <div class="login-container">
+        <h2>Login</h2>
+        <p>By continuing, you agree to our <a href="/user-agreement" class="link">User Agreement</a> and acknowledge that you understand the <a href="/privacy-policy" class="link">Privacy Policy</a>.</p>
+        <form action="/login" method="POST">
+            <div class="form-group">
+                <input type="text" id="username" name="username" placeholder="Enter your email or username *" required>
+            </div>
+            <div class="form-group">
+                <input type="password" id="password" name="password" placeholder="Enter your password *" required>
+            </div>
+            <button type="submit" class="login-btn">Login</button>
+            <div class="or-divider">OR</div>
+            <div class="social-login">
+                <button class="google-login">
+                    <img src="../static/Google_Icons-09-512.webp" alt="Google Logo"> Login with Google
+                </button>
+                <button class="facebook-login">
+                    <img src="../static/facebook-logo-facebook-icon-transparent-free-png.webp" alt="Facebook Logo"> Login with Facebook
+                </button>
+            </div>
+            <div class="signup-link">
+                Don't have an account? <a href="/signup" class="link">Sign Up</a>
+            </div>
+        </form>
+    </div>
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <div class="flash-messages">
+            {% for category, message in messages %}
+                <div class="flash-message {{ category }}">{{ message }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endwith %}
+</body>
+</html>
